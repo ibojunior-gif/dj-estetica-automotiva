@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DJ Estética Automotiva — Especialistas em lavagem, detailing, polimento e restauração automotiva em Cascais.">
+<title>DJ Estética Automotiva — Cascais</title>
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #1a1a1a;
+    --surface-hover: #242424;
+    --gold: #c8963b;
+    --gold-light: #e0b860;
+    --text: #e8e6e3;
+    --text-muted: #9c9a97;
+    --border: #2a2a2a;
+    --radius: 8px;
+    --radius-lg: 16px;
+    --max-width: 1100px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Header */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13, 13, 13, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    max-width: var(--max-width); margin: 0 auto; padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo-img { height: 44px; border-radius: 4px; }
+  .header-cta {
+    background: var(--gold); color: #000; border: none;
+    padding: 10px 22px; border-radius: 6px; font-weight: 700;
+    font-size: 0.95rem; cursor: pointer; transition: background 0.2s;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .header-cta:hover { background: var(--gold-light); }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 100px 24px 60px; position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(180deg, rgba(13,13,13,0.3) 0%, rgba(13,13,13,0.85) 70%, var(--bg) 100%);
+  }
+  .hero-img {
+    position: absolute; inset: 0; z-index: -1; object-fit: cover;
+    width: 100%; height: 100%; opacity: 0.45;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: var(--max-width); margin: 0 auto; }
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
+  .hero h1 span { color: var(--gold); }
+  .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 500px; margin-bottom: 32px; }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: #000; border: none; padding: 14px 32px;
+    border-radius: 6px; font-weight: 700; font-size: 1rem; cursor: pointer;
+    text-decoration: none; transition: background 0.2s; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline {
+    background: transparent; color: var(--text); border: 1px solid var(--border);
+    padding: 14px 32px; border-radius: 6px; font-weight: 600; font-size: 1rem;
+    cursor: pointer; text-decoration: none; transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--surface); border-color: var(--gold); }
+
+  /* Sections */
+  section { padding: 80px 24px; }
+  .section-inner { max-width: var(--max-width); margin: 0 auto; }
+  .section-label {
+    color: var(--gold); font-weight: 700; font-size: 0.85rem;
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;
+  }
+  .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 16px; }
+  .section-subtitle { color: var(--text-muted); max-width: 560px; }
+
+  /* Services */
+  #servicos { background: var(--surface); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px; margin-top: 48px;
+  }
+  .service-card {
+    background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 32px 28px; transition: border-color 0.2s, transform 0.2s;
+  }
+  .service-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .service-icon { font-size: 2rem; margin-bottom: 16px; }
+  .service-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+  /* Gallery */
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px; margin-top: 48px;
+  }
+  .gallery-item {
+    aspect-ratio: 3/2; border-radius: var(--radius-lg); overflow: hidden;
+    border: 1px solid var(--border); transition: border-color 0.2s;
+  }
+  .gallery-item:hover { border-color: var(--gold); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Location */
+  #localizacao { background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%); }
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; align-items: center; }
+  .location-info h3 { font-size: 1.5rem; margin-bottom: 12px; }
+  .location-info p { color: var(--text-muted); margin-bottom: 8px; }
+  .location-map {
+    border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border);
+    aspect-ratio: 16/10; background: var(--surface);
+    display: flex; align-items: center; justify-content: center; color: var(--text-muted);
+  }
+
+  /* CTA */
+  #contacto { text-align: center; }
+  .cta-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 48px 32px; max-width: 600px; margin: 0 auto;
+  }
+  .cta-card h2 { font-size: 1.8rem; margin-bottom: 12px; }
+  .cta-card p { color: var(--text-muted); margin-bottom: 28px; }
+  .contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  footer {
+    border-top: 1px solid var(--border); padding: 32px 24px;
+    text-align: center; color: var(--text-muted); font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .location-grid { grid-template-columns: 1fr; }
+    header { padding: 8px 0; }
+    .logo-img { height: 36px; }
+    .hero h1 { font-size: 2rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .service-card { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#"><img src="assets/images/img_d025a7a5914a.jpg" alt="DJ Estética Automotiva" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none;font-weight:800;font-size:1.1rem;">DJ Estética Automotiva</span></a>
+    <a href="https://wa.me/351926557626" class="header-cta" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="assets/images/img_1b050a4984a4.jpg" alt="DJ Estética Automotiva" class="hero-img" onerror="this.style.display='none'">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>O seu carro merece <span>excelência</span></h1>
+    <p>Lavagem, detailing e restauração automotiva em Cascais. Cuidamos do seu carro como se fosse nosso.</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/351926557626" class="btn-primary" target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+      <a href="#servicos" class="btn-outline">Ver Serviços ↓</a>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="section-inner">
+    <div class="section-label">Serviços</div>
+    <h2 class="section-title">Tudo o que o seu carro precisa</h2>
+    <p class="section-subtitle">Da lavagem rápida ao polimento técnico — fazemos tudo com produtos profissionais e atenção aos detalhes.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🧽</div>
+        <h3>Lavagem Profissional</h3>
+        <p>Lavagem exterior completa com produtos premium, secagem sem risco e acabamento impecável.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✨</div>
+        <h3>Detailing Automotivo</h3>
+        <p>Limpeza profunda interior e exterior, descontaminação de pintura e proteção de superfícies.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪞</div>
+        <h3>Polimento Técnico</h3>
+        <p>Correção de pintura em múltiplos estágios para remover riscos, swirls e devolver o brilho original.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔦</div>
+        <h3>Restauração de Faróis</h3>
+        <p>Recuperação total de faróis amarelados e opacos — mais segurança e estética.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔨</div>
+        <h3>Martelinho de Ouro</h3>
+        <p>Reparação de mossas sem necessidade de pintura, preservando a originalidade do veículo.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Pintura Automotiva</h3>
+        <p>Pintura profissional de carroçaria e jantes com cabine de pintura e cores fiéis ao original.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="section-inner">
+    <div class="section-label">Galeria</div>
+    <h2 class="section-title">Trabalhos realizados</h2>
+    <p class="section-subtitle">Resultados reais na DJ Estética Automotiva. Cada carro tratado com o máximo cuidado.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="assets/images/img_f2c79a0cf3ef.jpg" alt="Detailing automotivo" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="gallery-item"><img src="assets/images/img_e09e08dc6db7.jpg" alt="Polimento técnico" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="gallery-item"><img src="assets/images/img_507e395b5ef0.jpg" alt="Lavagem profissional" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="gallery-item"><img src="assets/images/img_45962b82d3ee.jpg" alt="Restauração de faróis" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="gallery-item"><img src="assets/images/img_ae061f249fd5.jpg" alt="Martelinho de ouro" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="gallery-item"><img src="assets/images/img_d1024371d830.jpg" alt="Pintura automotiva" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+    </div>
+  </div>
+</section>
+
+<section id="localizacao">
+  <div class="section-inner">
+    <div class="section-label">Onde Estamos</div>
+    <div class="location-grid">
+      <div class="location-info">
+        <h3>Cascais, Portugal</h3>
+        <p>📍 No coração de Cascais — fácil acesso, estacionamento disponível.</p>
+        <p>🕐 Segunda a Sexta: 9h–19h | Sábado: 9h–14h</p>
+        <p>📞 <strong>926 557 626</strong></p>
+        <p style="margin-top:16px;">
+          <a href="https://wa.me/351926557626" class="btn-primary" target="_blank" rel="noopener">💬 Agendar no WhatsApp</a>
+        </p>
+      </div>
+      <div class="location-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.5488373584!2d-9.4215!3d38.6979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDQxJzUyLjQiTiA5wrAyNScxNy40Ilc!5e0!3m2!1spt-PT!2spt!4v1690000000000" width="100%" height="100%" style="border:0;border-radius:var(--radius-lg)" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="section-inner">
+    <div class="cta-card">
+      <h2>Pronto para transformar o seu carro?</h2>
+      <p>Fale connosco no WhatsApp e agende a sua visita. Resposta rápida, orçamento sem compromisso.</p>
+      <div class="contact-links">
+        <a href="https://wa.me/351926557626" class="btn-primary" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a href="tel:+351926557626" class="btn-outline">📞 Ligar Agora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 DJ Estética Automotiva — Cascais, Portugal</p>
+</footer>
+
+</body>
+</html>
