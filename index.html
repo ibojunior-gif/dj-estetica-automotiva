@@ -151,6 +151,34 @@
     .hero h1 { font-size: 2rem; }
   }
 
+  /* Before/After Gallery */
+  .before-after-grid { display: flex; flex-direction: column; gap: 32px; margin-top: 48px; }
+  .ba-pair {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px;
+    align-items: center;
+  }
+  .ba-card {
+    position: relative; border-radius: var(--radius-lg); overflow: hidden;
+    border: 1px solid var(--border); aspect-ratio: 4/3;
+  }
+  .ba-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ba-label {
+    position: absolute; top: 8px; left: 8px; z-index: 2;
+    padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .ba-label.antes { background: rgba(180,50,20,0.85); color: #fff; }
+  .ba-label.depois { background: rgba(30,160,80,0.85); color: #fff; }
+  .ba-arrow {
+    font-size: 2rem; color: var(--gold); font-weight: 800;
+    display: flex; align-items: center;
+  }
+
+  @media (max-width: 640px) {
+    .ba-pair { grid-template-columns: 1fr; }
+    .ba-arrow { transform: rotate(90deg); justify-content: center; font-size: 1.5rem; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .service-card { transition: none; }
   }
@@ -166,7 +194,7 @@
 </header>
 
 <section class="hero">
-  <img src="assets/images/img_1b050a4984a4.jpg" alt="DJ Estética Automotiva" class="hero-img" onerror="this.style.display='none'">
+  <img src="assets/images/bg-hero.jpg" alt="DJ Estética Automotiva" class="hero-img" onerror="this.style.display='none'">
   <div class="hero-bg"></div>
   <div class="hero-content">
     <h1>O seu carro merece <span>excelência</span></h1>
@@ -220,16 +248,58 @@
 
 <section id="galeria">
   <div class="section-inner">
-    <div class="section-label">Galeria</div>
-    <h2 class="section-title">Trabalhos realizados</h2>
-    <p class="section-subtitle">Resultados reais na DJ Estética Automotiva. Cada carro tratado com o máximo cuidado.</p>
-    <div class="gallery-grid">
-      <div class="gallery-item"><img src="assets/images/img_f2c79a0cf3ef.jpg" alt="Detailing automotivo" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="assets/images/img_e09e08dc6db7.jpg" alt="Polimento técnico" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="assets/images/img_507e395b5ef0.jpg" alt="Lavagem profissional" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="assets/images/img_45962b82d3ee.jpg" alt="Restauração de faróis" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="assets/images/img_ae061f249fd5.jpg" alt="Martelinho de ouro" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gallery-item"><img src="assets/images/img_d1024371d830.jpg" alt="Pintura automotiva" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+    <div class="section-label">Antes & Depois</div>
+    <h2 class="section-title">Transformações reais</h2>
+    <p class="section-subtitle">O antes e depois dos carros que passaram pela DJ. Resultados que falam por si.</p>
+    <div class="before-after-grid">
+      <!-- Par 1 -->
+      <div class="ba-pair">
+        <div class="ba-card">
+          <span class="ba-label antes">Antes</span>
+          <img src="assets/images/antes-depois-1a.jpg" alt="Antes" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
+        </div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-card">
+          <span class="ba-label depois">Depois</span>
+          <img src="assets/images/antes-depois-1b.jpg" alt="Depois" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
+        </div>
+      </div>
+      <!-- Par 2 -->
+      <div class="ba-pair">
+        <div class="ba-card">
+          <span class="ba-label antes">Antes</span>
+          <img src="assets/images/antes-depois-2a.jpg" alt="Antes" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
+        </div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-card">
+          <span class="ba-label depois">Depois</span>
+          <img src="assets/images/antes-depois-2b.jpg" alt="Depois" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
+        </div>
+      </div>
+      <!-- Par 3 -->
+      <div class="ba-pair">
+        <div class="ba-card">
+          <span class="ba-label antes">Antes</span>
+          <img src="assets/images/antes-depois-3a.jpg" alt="Antes" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
+        </div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-card">
+          <span class="ba-label depois">Depois</span>
+          <img src="assets/images/antes-depois-3b.jpg" alt="Depois" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
+        </div>
+      </div>
+      <!-- Par 4 -->
+      <div class="ba-pair">
+        <div class="ba-card">
+          <span class="ba-label antes">Antes</span>
+          <img src="assets/images/antes-depois-4a.jpg" alt="Antes" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
+        </div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-card">
+          <span class="ba-label depois">Depois</span>
+          <img src="assets/images/antes-depois-4b.jpg" alt="Depois" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
+        </div>
+      </div>
     </div>
   </div>
 </section>
